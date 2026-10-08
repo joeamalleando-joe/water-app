@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Profile – LifeLens</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="shortcut icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎯</text></svg>">
+</head>
+<body>
+
+  <div class="app-container">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="dashboard.html" class="brand-logo">
+          <div class="brand-icon">🎯</div>
+          LifeLens
+        </a>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="dashboard.html" class="nav-item" data-page="dashboard"><span class="icon">🏠</span> Dashboard</a>
+        <a href="tasks.html" class="nav-item" data-page="tasks"><span class="icon">📝</span> Tasks</a>
+        <a href="goals.html" class="nav-item" data-page="goals"><span class="icon">🎯</span> Goals</a>
+        <a href="mood.html" class="nav-item" data-page="mood"><span class="icon">😊</span> Mood</a>
+        <a href="water.html" class="nav-item" data-page="water"><span class="icon">💧</span> Water</a>
+        <a href="focus.html" class="nav-item" data-page="focus"><span class="icon">⏱️</span> Focus</a>
+        <a href="analytics.html" class="nav-item" data-page="analytics"><span class="icon">📊</span> Analytics</a>
+        <a href="profile.html" class="nav-item active" data-page="profile"><span class="icon">👤</span> Profile</a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button class="btn-logout-sidebar btn-logout-trigger"><span class="icon">🚪</span> Logout</button>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="top-header">
+        <div style="display: flex; align-items: center; gap: 1rem;">
+          <button class="mobile-toggle" id="mobile-menu-toggle">☰</button>
+          <div class="header-welcome">
+            <h1>User Profile 👤</h1>
+            <p>Manage your account settings and profile details.</p>
+          </div>
+        </div>
+      </header>
+
+      <!-- Profile Header Hero -->
+      <div class="card profile-header-card">
+        <div class="profile-avatar-large" id="profile-avatar-large">U</div>
+        <div class="profile-details">
+          <h2 id="profile-display-name">User Account</h2>
+          <p id="profile-display-email">user@example.com</p>
+          <span style="font-size: 0.85rem; color: var(--accent-primary); font-weight: 600;" id="profile-joined-date">Joined Recently</span>
+        </div>
+      </div>
+
+      <!-- Account Settings Form Card -->
+      <div class="card" style="max-width: 600px;">
+        <div class="card-title">✏️ Edit Profile Details</div>
+
+        <form id="profile-form">
+          <div class="form-group">
+            <label class="form-label" for="profile-name-input">Full Name</label>
+            <input type="text" id="profile-name-input" class="form-control" placeholder="Your Full Name" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="profile-email-input">Email Address (Read-only)</label>
+            <input type="email" id="profile-email-input" class="form-control" disabled style="opacity: 0.6; cursor: not-allowed;">
+            <span style="font-size: 0.75rem; color: var(--text-muted);">Email modification is managed securely by Firebase Authentication.</span>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="margin-top: 1rem;">Save Changes</button>
+        </form>
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="js/profile.js"></script>
+</body>
+</html>

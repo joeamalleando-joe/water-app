@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Water Intake Tracker – LifeLens</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="shortcut icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎯</text></svg>">
+</head>
+<body>
+
+  <div class="app-container">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="dashboard.html" class="brand-logo">
+          <div class="brand-icon">🎯</div>
+          LifeLens
+        </a>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="dashboard.html" class="nav-item" data-page="dashboard"><span class="icon">🏠</span> Dashboard</a>
+        <a href="tasks.html" class="nav-item" data-page="tasks"><span class="icon">📝</span> Tasks</a>
+        <a href="goals.html" class="nav-item" data-page="goals"><span class="icon">🎯</span> Goals</a>
+        <a href="mood.html" class="nav-item" data-page="mood"><span class="icon">😊</span> Mood</a>
+        <a href="water.html" class="nav-item active" data-page="water"><span class="icon">💧</span> Water</a>
+        <a href="focus.html" class="nav-item" data-page="focus"><span class="icon">⏱️</span> Focus</a>
+        <a href="analytics.html" class="nav-item" data-page="analytics"><span class="icon">📊</span> Analytics</a>
+        <a href="profile.html" class="nav-item" data-page="profile"><span class="icon">👤</span> Profile</a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button class="btn-logout-sidebar btn-logout-trigger"><span class="icon">🚪</span> Logout</button>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="top-header">
+        <div style="display: flex; align-items: center; gap: 1rem;">
+          <button class="mobile-toggle" id="mobile-menu-toggle">☰</button>
+          <div class="header-welcome">
+            <h1>Water Intake Tracker 💧</h1>
+            <p>Stay hydrated throughout your study and work sessions.</p>
+          </div>
+        </div>
+      </header>
+
+      <div class="card water-container" style="max-width: 680px; margin: 0 auto;">
+        <div class="card-title">Daily Hydration Goal (8 Glasses Target)</div>
+
+        <!-- Water Glass Display -->
+        <div class="water-glass-display">
+          <span>💧</span>
+          <span id="water-count-display">0 / 8</span>
+        </div>
+
+        <p id="water-pct-display" style="font-weight: 600; color: var(--accent-secondary);">0% of daily target reached</p>
+
+        <!-- Visual Glasses Array -->
+        <div id="water-glasses-icons" style="display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: center; margin: 1rem 0;">
+          <!-- Rendered by water.js -->
+        </div>
+
+        <!-- Visual Liquid Bar -->
+        <div class="water-visual-bar">
+          <div class="water-visual-fill" id="water-bar-fill" style="width: 0%;"></div>
+        </div>
+
+        <!-- Increment / Decrement Controls -->
+        <div class="water-controls">
+          <button class="btn btn-secondary btn-water" id="water-minus-btn" title="Remove Glass">-</button>
+          <button class="btn btn-primary btn-water" id="water-plus-btn" title="Add Glass" style="width: 64px; height: 64px; font-size: 2rem;">+</button>
+        </div>
+
+        <button class="btn btn-secondary" id="water-reset-btn" style="margin-top: 1rem; font-size: 0.85rem;">🔄 Reset Today's Count</button>
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="js/water.js"></script>
+</body>
+</html>

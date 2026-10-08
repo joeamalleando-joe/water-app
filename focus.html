@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Focus Timer – LifeLens</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="shortcut icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎯</text></svg>">
+</head>
+<body>
+
+  <div class="app-container">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="dashboard.html" class="brand-logo">
+          <div class="brand-icon">🎯</div>
+          LifeLens
+        </a>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="dashboard.html" class="nav-item" data-page="dashboard"><span class="icon">🏠</span> Dashboard</a>
+        <a href="tasks.html" class="nav-item" data-page="tasks"><span class="icon">📝</span> Tasks</a>
+        <a href="goals.html" class="nav-item" data-page="goals"><span class="icon">🎯</span> Goals</a>
+        <a href="mood.html" class="nav-item" data-page="mood"><span class="icon">😊</span> Mood</a>
+        <a href="water.html" class="nav-item" data-page="water"><span class="icon">💧</span> Water</a>
+        <a href="focus.html" class="nav-item active" data-page="focus"><span class="icon">⏱️</span> Focus</a>
+        <a href="analytics.html" class="nav-item" data-page="analytics"><span class="icon">📊</span> Analytics</a>
+        <a href="profile.html" class="nav-item" data-page="profile"><span class="icon">👤</span> Profile</a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button class="btn-logout-sidebar btn-logout-trigger"><span class="icon">🚪</span> Logout</button>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="top-header">
+        <div style="display: flex; align-items: center; gap: 1rem;">
+          <button class="mobile-toggle" id="mobile-menu-toggle">☰</button>
+          <div class="header-welcome">
+            <h1>Focus / Pomodoro Timer ⏱️</h1>
+            <p>Boost your study productivity with timed focus blocks.</p>
+          </div>
+        </div>
+      </header>
+
+      <div class="card timer-container" style="max-width: 640px; margin: 0 auto;">
+        <!-- Timer Duration Presets -->
+        <div class="timer-preset-btns">
+          <button class="btn filter-btn timer-preset-btn active" data-duration="25">25 Mins</button>
+          <button class="btn filter-btn timer-preset-btn" data-duration="45">45 Mins</button>
+          <button class="btn filter-btn timer-preset-btn" data-duration="60">60 Mins</button>
+        </div>
+
+        <!-- SVG Circular Ring & Countdown Display -->
+        <div class="timer-ring-wrapper">
+          <svg class="timer-ring-svg" viewBox="0 0 240 240">
+            <circle class="timer-ring-circle-bg" cx="120" cy="120" r="110"></circle>
+            <circle class="timer-ring-circle-progress" id="timer-ring-progress" cx="120" cy="120" r="110"></circle>
+          </svg>
+          <div class="timer-display-time" id="timer-display">25:00</div>
+        </div>
+
+        <!-- Timer Action Controls -->
+        <div class="timer-action-btns">
+          <button class="btn btn-primary" id="timer-start-btn" style="min-width: 130px;">▶ Start</button>
+          <button class="btn btn-secondary" id="timer-pause-btn" style="min-width: 130px; display: none;">⏸ Pause</button>
+          <button class="btn btn-secondary" id="timer-reset-btn" style="min-width: 130px;">🔄 Reset</button>
+        </div>
+
+        <!-- Today's Session Counter -->
+        <div style="margin-top: 2rem; background: rgba(255,255,255,0.03); padding: 0.85rem 1.5rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+          <span style="font-weight: 600; color: var(--text-main);">Today's Focus Sessions: </span>
+          <span id="today-focus-counter" style="font-weight: 700; color: var(--accent-primary); font-size: 1.2rem;">0</span>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="js/focus-timer.js"></script>
+</body>
+</html>

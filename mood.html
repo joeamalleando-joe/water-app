@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mood Tracker – LifeLens</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="shortcut icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎯</text></svg>">
+</head>
+<body>
+
+  <div class="app-container">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="dashboard.html" class="brand-logo">
+          <div class="brand-icon">🎯</div>
+          LifeLens
+        </a>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="dashboard.html" class="nav-item" data-page="dashboard"><span class="icon">🏠</span> Dashboard</a>
+        <a href="tasks.html" class="nav-item" data-page="tasks"><span class="icon">📝</span> Tasks</a>
+        <a href="goals.html" class="nav-item" data-page="goals"><span class="icon">🎯</span> Goals</a>
+        <a href="mood.html" class="nav-item active" data-page="mood"><span class="icon">😊</span> Mood</a>
+        <a href="water.html" class="nav-item" data-page="water"><span class="icon">💧</span> Water</a>
+        <a href="focus.html" class="nav-item" data-page="focus"><span class="icon">⏱️</span> Focus</a>
+        <a href="analytics.html" class="nav-item" data-page="analytics"><span class="icon">📊</span> Analytics</a>
+        <a href="profile.html" class="nav-item" data-page="profile"><span class="icon">👤</span> Profile</a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button class="btn-logout-sidebar btn-logout-trigger"><span class="icon">🚪</span> Logout</button>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="top-header">
+        <div style="display: flex; align-items: center; gap: 1rem;">
+          <button class="mobile-toggle" id="mobile-menu-toggle">☰</button>
+          <div class="header-welcome">
+            <h1>Mood Tracker 😊</h1>
+            <p>Reflect on how you feel today to track your emotional well-being.</p>
+          </div>
+        </div>
+      </header>
+
+      <!-- Mood Selection Card -->
+      <div class="card" style="margin-bottom: 2rem;">
+        <div class="card-title">How are you feeling today?</div>
+        
+        <div id="mood-selector-grid" class="mood-grid">
+          <!-- Populated by mood.js -->
+        </div>
+
+        <p id="current-mood-status" style="font-weight: 600; color: var(--accent-primary); text-align: center; margin-top: 1rem;">
+          Select a mood above to log today's entry.
+        </p>
+
+        <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 1rem; text-align: center;">
+          ℹ️ Note: This module serves as a personal daily journal tool. It does not provide psychological or medical diagnoses.
+        </p>
+      </div>
+
+      <!-- Mood Log History -->
+      <div class="card">
+        <div class="card-title">📅 Recent Mood History</div>
+        <div id="mood-history-list" class="mood-history-list">
+          <div class="page-loader">
+            <div class="loading-spinner"></div>
+            <p>Loading mood history...</p>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="js/mood.js"></script>
+</body>
+</html>

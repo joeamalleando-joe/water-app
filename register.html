@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register Account – LifeLens</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/auth.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="shortcut icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎯</text></svg>">
+</head>
+<body>
+
+  <div class="auth-wrapper">
+    <div class="auth-card">
+      <div class="auth-header">
+        <a href="index.html" class="auth-logo">
+          <div class="brand-icon">🎯</div>
+          LifeLens
+        </a>
+        <p class="auth-subtitle">Create your personal student account</p>
+      </div>
+
+      <div id="auth-alert" class="auth-alert"></div>
+
+      <form id="register-form">
+        <div class="form-group">
+          <label class="form-label" for="register-name">Full Name</label>
+          <input type="text" id="register-name" class="form-control" placeholder="Alex Morgan" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="register-email">Email Address</label>
+          <input type="email" id="register-email" class="form-control" placeholder="alex@university.edu" required autocomplete="email">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="register-password">Password (Min. 6 characters)</label>
+          <div class="password-input-group">
+            <input type="password" id="register-password" class="form-control" placeholder="••••••••" required autocomplete="new-password">
+            <button type="button" class="password-toggle-btn" data-target="register-password" title="Show/Hide Password">👁️‍🗨️</button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="register-confirm-password">Confirm Password</label>
+          <div class="password-input-group">
+            <input type="password" id="register-confirm-password" class="form-control" placeholder="••••••••" required autocomplete="new-password">
+            <button type="button" class="password-toggle-btn" data-target="register-confirm-password" title="Show/Hide Password">👁️‍🗨️</button>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.85rem; margin-top: 0.5rem;">Register Account</button>
+      </form>
+
+      <div class="auth-footer">
+        Already have an account? <a href="login.html">Login here</a>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="js/auth.js"></script>
+</body>
+</html>

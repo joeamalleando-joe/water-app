@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task Management – LifeLens</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="shortcut icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎯</text></svg>">
+</head>
+<body>
+
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="dashboard.html" class="brand-logo">
+          <div class="brand-icon">🎯</div>
+          LifeLens
+        </a>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="dashboard.html" class="nav-item" data-page="dashboard"><span class="icon">🏠</span> Dashboard</a>
+        <a href="tasks.html" class="nav-item active" data-page="tasks"><span class="icon">📝</span> Tasks</a>
+        <a href="goals.html" class="nav-item" data-page="goals"><span class="icon">🎯</span> Goals</a>
+        <a href="mood.html" class="nav-item" data-page="mood"><span class="icon">😊</span> Mood</a>
+        <a href="water.html" class="nav-item" data-page="water"><span class="icon">💧</span> Water</a>
+        <a href="focus.html" class="nav-item" data-page="focus"><span class="icon">⏱️</span> Focus</a>
+        <a href="analytics.html" class="nav-item" data-page="analytics"><span class="icon">📊</span> Analytics</a>
+        <a href="profile.html" class="nav-item" data-page="profile"><span class="icon">👤</span> Profile</a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button class="btn-logout-sidebar btn-logout-trigger"><span class="icon">🚪</span> Logout</button>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <header class="top-header">
+        <div style="display: flex; align-items: center; gap: 1rem;">
+          <button class="mobile-toggle" id="mobile-menu-toggle">☰</button>
+          <div class="header-welcome">
+            <h1>Task Management 📝</h1>
+            <p>Organize, filter, search, and track your daily tasks.</p>
+          </div>
+        </div>
+
+        <div class="header-actions">
+          <button class="btn btn-primary" id="add-task-btn">+ Add New Task</button>
+        </div>
+      </header>
+
+      <!-- Filter & Search Toolbar -->
+      <div class="filter-bar">
+        <div class="search-box">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="task-search-input" class="form-control" placeholder="Search tasks by title, category...">
+        </div>
+
+        <div class="filter-group">
+          <button class="filter-btn task-filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn task-filter-btn" data-filter="pending">Pending</button>
+          <button class="filter-btn task-filter-btn" data-filter="completed">Completed</button>
+          <button class="filter-btn task-filter-btn" data-filter="high">High Priority</button>
+          <button class="filter-btn task-filter-btn" data-filter="medium">Medium Priority</button>
+          <button class="filter-btn task-filter-btn" data-filter="low">Low Priority</button>
+        </div>
+      </div>
+
+      <!-- Task Cards Container -->
+      <div id="tasks-container" class="task-list">
+        <div class="page-loader">
+          <div class="loading-spinner"></div>
+          <p>Loading your tasks...</p>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Create / Edit Task Modal -->
+  <div class="modal-backdrop" id="task-modal-backdrop">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 id="task-modal-title">Create New Task</h3>
+        <button class="modal-close" id="task-modal-close">&times;</button>
+      </div>
+
+      <form id="task-form">
+        <input type="hidden" id="task-id">
+
+        <div class="form-group">
+          <label class="form-label" for="task-title-input">Task Title *</label>
+          <input type="text" id="task-title-input" class="form-control" placeholder="e.g. Complete MCA Database Assignment" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="task-desc-input">Description</label>
+          <textarea id="task-desc-input" class="form-control" rows="3" placeholder="Additional details or notes..."></textarea>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div class="form-group">
+            <label class="form-label" for="task-category-select">Category</label>
+            <select id="task-category-select" class="form-control">
+              <option value="Study">Study</option>
+              <option value="Personal">Personal</option>
+              <option value="Project">Project</option>
+              <option value="Work">Work</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="task-priority-select">Priority</label>
+            <select id="task-priority-select" class="form-control">
+              <option value="Low">Low</option>
+              <option value="Medium" selected>Medium</option>
+              <option value="High">High</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div class="form-group">
+            <label class="form-label" for="task-date-input">Due Date</label>
+            <input type="date" id="task-date-input" class="form-control">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="task-status-select">Status</label>
+            <select id="task-status-select" class="form-control">
+              <option value="Pending">Pending</option>
+              <option value="Completed">Completed</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" id="task-modal-cancel">Cancel</button>
+          <button type="submit" class="btn btn-primary" id="task-modal-submit">Save Task</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script type="module" src="js/tasks.js"></script>
+</body>
+</html>
