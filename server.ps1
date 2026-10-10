@@ -20,7 +20,7 @@ $mimeTypes = @{
     ".ttf"  = "font/ttf"
 }
 
-$root = "c:\LYF_LEN"
+$root = $PSScriptRoot
 
 while ($listener.IsListening) {
     $context = $listener.GetContext()
