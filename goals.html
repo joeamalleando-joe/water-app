@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Goal – LifeLens</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="shortcut icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎯</text></svg>">
+</head>
+<body>
+
+  <div class="app-container">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="dashboard.html" class="brand-logo">
+          <div class="brand-icon">🎯</div>
+          LifeLens
+        </a>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="dashboard.html" class="nav-item" data-page="dashboard"><span class="icon">🏠</span> Dashboard</a>
+        <a href="tasks.html" class="nav-item" data-page="tasks"><span class="icon">📝</span> Tasks</a>
+        <a href="goals.html" class="nav-item active" data-page="goals"><span class="icon">🎯</span> Goals</a>
+        <a href="mood.html" class="nav-item" data-page="mood"><span class="icon">😊</span> Mood</a>
+        <a href="water.html" class="nav-item" data-page="water"><span class="icon">💧</span> Water</a>
+        <a href="focus.html" class="nav-item" data-page="focus"><span class="icon">⏱️</span> Focus</a>
+        <a href="analytics.html" class="nav-item" data-page="analytics"><span class="icon">📊</span> Analytics</a>
+        <a href="profile.html" class="nav-item" data-page="profile"><span class="icon">👤</span> Profile</a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button class="btn-logout-sidebar btn-logout-trigger"><span class="icon">🚪</span> Logout</button>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="top-header">
+        <div style="display: flex; align-items: center; gap: 1rem;">
+          <button class="mobile-toggle" id="mobile-menu-toggle">☰</button>
+          <div class="header-welcome">
+            <h1>Daily Goal 🎯</h1>
+            <p>Define your primary focus objective for each day.</p>
+          </div>
+        </div>
+
+        <div class="header-actions">
+          <button class="btn btn-primary" id="add-goal-btn">+ Set Goal</button>
+        </div>
+      </header>
+
+      <!-- Today's Goal Highlight -->
+      <div id="today-goal-card" style="margin-bottom: 2rem;">
+        <div class="page-loader">
+          <div class="loading-spinner"></div>
+          <p>Loading today's goal...</p>
+        </div>
+      </div>
+
+      <!-- Goal History Section -->
+      <div class="card">
+        <div class="card-title">📜 Past Goals History</div>
+        <div id="goals-history-container">
+          <div class="page-loader">
+            <div class="loading-spinner"></div>
+            <p>Loading history...</p>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Goal Modal -->
+  <div class="modal-backdrop" id="goal-modal-backdrop">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 id="goal-modal-title">Set Daily Goal</h3>
+        <button class="modal-close" id="goal-modal-close">&times;</button>
+      </div>
+
+      <form id="goal-form">
+        <input type="hidden" id="goal-id">
+
+        <div class="form-group">
+          <label class="form-label" for="goal-title-input">Goal Description *</label>
+          <input type="text" id="goal-title-input" class="form-control" placeholder="e.g. Complete MCA Web Project Demo" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="goal-date-input">Target Date</label>
+          <input type="date" id="goal-date-input" class="form-control" required>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" id="goal-modal-cancel">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Goal</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script type="module" src="js/goals.js"></script>
+</body>
+</html>

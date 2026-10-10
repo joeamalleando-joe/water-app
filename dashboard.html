@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard – LifeLens</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="shortcut icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎯</text></svg>">
+</head>
+<body>
+
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="dashboard.html" class="brand-logo">
+          <div class="brand-icon">🎯</div>
+          LifeLens
+        </a>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="dashboard.html" class="nav-item active" data-page="dashboard"><span class="icon">🏠</span> Dashboard</a>
+        <a href="tasks.html" class="nav-item" data-page="tasks"><span class="icon">📝</span> Tasks</a>
+        <a href="goals.html" class="nav-item" data-page="goals"><span class="icon">🎯</span> Goals</a>
+        <a href="mood.html" class="nav-item" data-page="mood"><span class="icon">😊</span> Mood</a>
+        <a href="water.html" class="nav-item" data-page="water"><span class="icon">💧</span> Water</a>
+        <a href="focus.html" class="nav-item" data-page="focus"><span class="icon">⏱️</span> Focus</a>
+        <a href="analytics.html" class="nav-item" data-page="analytics"><span class="icon">📊</span> Analytics</a>
+        <a href="profile.html" class="nav-item" data-page="profile"><span class="icon">👤</span> Profile</a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button class="btn-logout-sidebar btn-logout-trigger"><span class="icon">🚪</span> Logout</button>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <!-- Top Header -->
+      <header class="top-header">
+        <div style="display: flex; align-items: center; gap: 1rem;">
+          <button class="mobile-toggle" id="mobile-menu-toggle">☰</button>
+          <div class="header-welcome">
+            <h1 id="header-user-name">Welcome Back 👋</h1>
+            <p>Here is your daily productivity overview.</p>
+          </div>
+        </div>
+
+        <div class="header-actions">
+          <span class="header-date-badge" id="header-current-date">Today</span>
+          <a href="profile.html" class="user-profile-pill">
+            <div class="avatar-circle" id="header-avatar">U</div>
+            <span>Profile</span>
+          </a>
+          <button class="btn btn-secondary btn-logout-trigger" style="padding: 0.4rem 0.8rem; font-size: 0.85rem;">Logout</button>
+        </div>
+      </header>
+
+      <!-- Dashboard Grid -->
+      <div class="dashboard-grid">
+        <!-- Hero Card -->
+        <div class="card dashboard-hero-card">
+          <div class="hero-text">
+            <h2>“Plan your day. Track your progress. Improve yourself.”</h2>
+            <p>LifeLens combines your daily goals, tasks, mood, water intake, and focus sessions into one intelligent dashboard.</p>
+          </div>
+          <a href="tasks.html" class="btn btn-primary" style="white-space: nowrap;">Manage Tasks →</a>
+        </div>
+
+        <!-- Today's Goal Card -->
+        <div class="card">
+          <div class="card-title">🎯 Today's Main Goal</div>
+          <p id="dash-goal-text" style="font-size: 1.1rem; font-weight: 600; margin-bottom: 1rem;">Loading goal...</p>
+          <button id="dash-goal-btn" class="btn btn-primary btn-sm">Loading...</button>
+        </div>
+
+        <!-- Task Progress Card -->
+        <div class="card">
+          <div class="card-title">📝 Task Progress</div>
+          <div class="stat-box">
+            <div class="stat-icon icon-purple">📝</div>
+            <div class="stat-info" style="flex: 1;">
+              <div class="stat-value" id="dash-task-text">0 / 0 Completed</div>
+              <div class="progress-bar-container" style="margin-top: 0.5rem;">
+                <div class="progress-bar-fill" id="dash-task-fill" style="width: 0%;"></div>
+              </div>
+            </div>
+          </div>
+          <a href="tasks.html" style="display: inline-block; font-size: 0.85rem; color: var(--accent-primary); margin-top: 1rem; text-decoration: none; font-weight: 600;">View All Tasks →</a>
+        </div>
+
+        <!-- Mood Widget Card -->
+        <div class="card">
+          <div class="card-title">😊 Today's Mood</div>
+          <div class="stat-box">
+            <div class="stat-icon icon-amber">😊</div>
+            <div class="stat-info">
+              <div class="stat-value" id="dash-mood-display">Not Set</div>
+              <div class="stat-label">Daily Mood Log</div>
+            </div>
+          </div>
+          <a href="mood.html" style="display: inline-block; font-size: 0.85rem; color: var(--accent-primary); margin-top: 1rem; text-decoration: none; font-weight: 600;">Log Today's Mood →</a>
+        </div>
+
+        <!-- Water Widget Card -->
+        <div class="card">
+          <div class="card-title">💧 Water Intake</div>
+          <div class="stat-box">
+            <div class="stat-icon icon-cyan">💧</div>
+            <div class="stat-info" style="flex: 1;">
+              <div class="stat-value" id="dash-water-text">0 / 8 Glasses</div>
+              <div class="progress-bar-container" style="margin-top: 0.5rem;">
+                <div class="progress-bar-fill" id="dash-water-fill" style="width: 0%; background: linear-gradient(90deg, #06b6d4, #3b82f6);"></div>
+              </div>
+            </div>
+          </div>
+          <a href="water.html" style="display: inline-block; font-size: 0.85rem; color: var(--accent-primary); margin-top: 1rem; text-decoration: none; font-weight: 600;">Track Water Intake →</a>
+        </div>
+
+        <!-- Focus Timer Card -->
+        <div class="card">
+          <div class="card-title">⏱️ Focus Sessions</div>
+          <div class="stat-box">
+            <div class="stat-icon icon-rose">⏱️</div>
+            <div class="stat-info">
+              <div class="stat-value" id="dash-focus-count">0 Sessions</div>
+              <div class="stat-label">Completed Today</div>
+            </div>
+          </div>
+          <a href="focus.html" style="display: inline-block; font-size: 0.85rem; color: var(--accent-primary); margin-top: 1rem; text-decoration: none; font-weight: 600;">Start Focus Timer →</a>
+        </div>
+
+        <!-- Overall Progress Card -->
+        <div class="card" style="grid-column: 1 / -1;">
+          <div class="card-title" style="justify-content: space-between;">
+            <span>📊 Overall Daily Progress</span>
+            <span id="dash-overall-val" style="font-weight: 700; color: var(--accent-primary);">0%</span>
+          </div>
+          <div class="progress-bar-container" style="height: 14px; margin-top: 0.5rem;">
+            <div class="progress-bar-fill" id="dash-overall-fill" style="width: 0%;"></div>
+          </div>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.75rem;">
+            Score derived from tasks completed, daily goal status, water intake, and completed focus sessions.
+          </p>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="js/dashboard.js"></script>
+</body>
+</html>
