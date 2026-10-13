@@ -454,3 +454,113 @@
   color: var(--text-muted);
   font-size: 0.95rem;
 }
+
+/* ==========================================================================
+   Header Weather Pill & Generate Data Button (Exact visual style from screenshot)
+   ========================================================================== */
+.header-weather-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.weather-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: #fbf6ee;
+  border: 1.5px solid #ebdccb;
+  color: #7c441c;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.45rem 1rem;
+  border-radius: 12px;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.weather-pill-btn:hover {
+  background: #f5ede0;
+  border-color: #dfcdb8;
+  transform: translateY(-1px);
+}
+
+.weather-pill-btn .weather-pill-icon {
+  font-size: 1.15rem;
+  display: inline-block;
+  line-height: 1;
+}
+
+.weather-pill-btn .weather-pill-text {
+  letter-spacing: -0.01em;
+}
+
+.btn-generate-data {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: #fbf6ee;
+  border: 1.5px solid #ebdccb;
+  color: #7c441c;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.45rem 1rem;
+  border-radius: 12px;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.btn-generate-data:hover {
+  background: #f5ede0;
+  border-color: #dfcdb8;
+  transform: translateY(-1px);
+}
+
+.btn-generate-data .lightning-icon {
+  color: #d97706;
+  font-size: 1.05rem;
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.btn-generate-data:hover .lightning-icon {
+  transform: scale(1.25);
+}
+
+/* Modal styling for Generate Data */
+.api-link-box {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid var(--border-color);
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  font-family: monospace;
+  font-size: 0.85rem;
+  word-break: break-all;
+  color: #38bdf8;
+  margin: 0.75rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.json-preview-box {
+  background: #0b1120;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  max-height: 200px;
+  overflow-y: auto;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.78rem;
+  color: #a5f3fc;
+  white-space: pre-wrap;
+  margin: 0.5rem 0 0 0;
+}
+
