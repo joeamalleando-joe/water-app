@@ -133,6 +133,25 @@
           <a href="focus.html" style="display: inline-block; font-size: 0.85rem; color: var(--accent-primary); margin-top: 1rem; text-decoration: none; font-weight: 600;">Start Focus Timer →</a>
         </div>
 
+        <!-- Live Weather Card (OpenWeatherMap API) -->
+        <div class="card" id="weather-card">
+          <div class="card-title" style="justify-content: space-between;">
+            <span>🌤️ Live Weather</span>
+            <span id="dash-weather-city" title="Click to change city" style="font-size: 0.85rem; color: var(--accent-primary); cursor: pointer; text-decoration: underline dotted; font-weight: 600;">Detecting...</span>
+          </div>
+          <div class="stat-box">
+            <div class="stat-icon icon-cyan" id="dash-weather-icon" style="font-size: 1.8rem;">🌤️</div>
+            <div class="stat-info" style="flex: 1;">
+              <div class="stat-value" id="dash-weather-temp">--°C</div>
+              <div class="stat-label" id="dash-weather-desc" style="text-transform: capitalize;">Loading weather...</div>
+            </div>
+          </div>
+          <div style="display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--text-muted); margin-top: 0.75rem; border-top: 1px solid var(--border-color); padding-top: 0.5rem;">
+            <span>💧 Humidity: <strong id="dash-weather-humidity">--%</strong></span>
+            <span>💨 Wind: <strong id="dash-weather-wind">-- m/s</strong></span>
+          </div>
+        </div>
+
         <!-- Overall Progress Card -->
         <div class="card" style="grid-column: 1 / -1;">
           <div class="card-title" style="justify-content: space-between;">
