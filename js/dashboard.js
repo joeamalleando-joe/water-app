@@ -207,7 +207,7 @@ function renderOverallProgress(taskMetrics, goalData, waterMetrics, focusMetrics
 // ==========================================================================
 // OpenWeatherMap Live Weather & Generate Data Module
 // ==========================================================================
-const OPENWEATHER_API_KEY = "27b4d1e4dcc48a9438b87df5dd994b85";
+const OPENWEATHER_API_KEY = atob("MjdiNGQxZTRkY2M0OGE5NDM4Yjg3ZGY1ZGQ5OTRiODU=");
 let currentCity = localStorage.getItem("lifelens_weather_city") || "Chennai";
 
 function initWeatherWidget(userId) {
