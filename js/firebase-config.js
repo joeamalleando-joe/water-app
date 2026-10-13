@@ -34,7 +34,7 @@ import {
 // configuration from your own Firebase project.
 // Do not use fake or randomly generated credentials.
 const firebaseConfig = {
-  apiKey: "27b4d1e4dcc48a9438b87df5dd994b85",
+ apiKey: "AIzaSyBvAFJaikcLWX0AvaiapRRUXaafq9zw9A4",
   authDomain: "life-lens-510917.firebaseapp.com",
   projectId: "life-lens-510917",
   storageBucket: "life-lens-510917.firebasestorage.app",
